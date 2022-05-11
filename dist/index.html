@@ -7,12 +7,30 @@
     <title>What the Weather?</title>
 </head>
 <body>
+    <h1>What the weather?</h1>
+
+    <div class="search">
+        <input name="Location" required type="search" placeholder="e.g. Tallinn">
+        <button id="search-btn">Search</button>
+        <span class="error"></span>
+    </div>
+
     <section class="location">
+
+        <span id="city"></span>
+        <span id="temperature"></span>
+        <div>
+            <span id="feels-like"></span>
+            <span id="humidity"></span>
+            <span id="pressure"></span>
+        </div>
     </section>
+
     <section class="info">
         <section class="info-stats"></section>
         <section class="info-forecast"></section>
     </section>
+
 </body>
 </html>
 <script src="main.js"></script>

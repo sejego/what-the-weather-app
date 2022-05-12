@@ -1,36 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>What the Weather?</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>What the weather?</h1>
 
-    <div class="search">
-        <input name="Location" required type="search" placeholder="e.g. Tallinn">
+    <div class="container" id="cnt-1">
+      <div class="container-inner single-container">
+        <input
+          name="Location"
+          required
+          type="search"
+          placeholder="e.g. Tallinn"
+        />
         <button id="search-btn">Search</button>
         <span class="error"></span>
+      </div>
     </div>
 
-    <section class="location">
-
-        <span id="city"></span>
-        <span id="temperature"></span>
+    <div class="container" id="cnt-2">
+      <div class="container-inner single-container">
+        <div id="location"></div>
+        <div></div>
+        <div id="temperature"></div>
         <div>
-            <span id="feels-like"></span>
-            <span id="humidity"></span>
-            <span id="pressure"></span>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <section class="info">
-        <section class="info-stats"></section>
-        <section class="info-forecast"></section>
-    </section>
-
-</body>
+    <div class="container" id="cnt-3">
+      <div class="container-inner container-multi">
+        <div class="container-small">
+          <div class="week-day">Saturday</div>
+          <div class="icon">
+            <img src="/src/icons/clear-day.svg" />
+          </div>
+          <div class="info">22 *C</div>
+        </div>
+        <div class="container-small">
+          <div class="week-day">Saturday</div>
+          <div class="icon">
+            <img src="/src/icons/clear-day.svg" />
+          </div>
+          <div class="info">22 *C</div>
+        </div>
+        <div class="container-small">
+          <div class="week-day">Saturday</div>
+          <div class="icon">
+            <img src="/src/icons/clear-day.svg" />
+          </div>
+          <div class="info">22 *C</div>
+        </div>
+        <div class="container-small">
+          <div class="week-day">Saturday</div>
+          <div class="icon">
+            <img src="/src/icons/clear-day.svg" />
+          </div>
+          <div class="info">22 *C</div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
 <script src="main.js"></script>
+<style>
+  :root {
+    --background-bg-color: #f8ecd1;
+    --info-block-bg-color: #deb6ab;
+    --text-color: #f5cce8;
+    --card-width: 45%;
+  }
+
+  html,
+  body {
+    height: 100%;
+    background-color: var(--background-bg-color);
+  }
+  .container {
+    margin-top: 2vh;
+    margin-bottom: 2vh; /* not sure its nice */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*border: 1px solid black;*/
+  }
+  .container-inner {
+    display: flex;
+    border-radius: 15px;
+    width: var(--card-width); /* This much be responsive... perhaps use @media*/
+    height: 100%;
+    align-items: center;
+  }
+  .single-container {
+    background-color: var(--info-block-bg-color);
+    justify-content: center;
+  }
+  .container-multi {
+    display: flex;
+    width: var(--card-width); /* This much be responsive... perhaps use @media*/
+    height: 100%;
+    justify-content: space-between;
+  }
+  .container-small {
+    display: flex;
+    height: 100%;
+    width: 23%;
+    border-radius: 15px;
+    background-color: var(--info-block-bg-color);
+    flex-direction: column;
+  }
+  .container-small > div {
+    height: 33.3%;
+  }
+  input[type="search"] {
+    width: 80%;
+    border-radius: 20px;
+    height: 50%;
+    border: none;
+  }
+  #cnt-1 {
+    height: 7%;
+  }
+  #cnt-2 {
+    height: 35%;
+  }
+  #cnt-3 {
+    height: 25%;
+  }
+  #search-btn {
+    border-radius: 15px;
+    margin-left: 0.5vw;
+    border: none;
+    cursor: pointer;
+    height: 50%;
+    width: 10%;
+  }
+  #search-btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .icon {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+  }
+</style>

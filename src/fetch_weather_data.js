@@ -19,5 +19,4 @@ async function fetchCurrentWeatherData(
     return error;
   }
 }
-
 export { fetchCurrentWeatherData };

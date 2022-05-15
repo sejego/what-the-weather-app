@@ -22,7 +22,7 @@ body {
 .container-inner {
   display: flex;
   border-radius: 15px;
-  width: var(--card-width); /* This much be responsive... perhaps use @media*/
+  width: var(--card-width);
   height: 100%;
   align-items: center;
 }
@@ -43,7 +43,6 @@ body {
   justify-content: center;
   font-family: var(--default-font);
   font-size: 40px;
-
 }
 #location {
   justify-content: center;
@@ -136,5 +135,20 @@ input[type="search"] {
   }
   .full-text {
     display: none;
+  }
+  #cnt-1 {
+    height: 7%;
+  }
+  #cnt-2 {
+    height: 45%;
+  }
+  #cnt-3 {
+    height: 20%;
+  }
+  :root {
+    --card-width: 85%;
+  }
+  .info-small {
+    font-size: 20px;
   }
 }

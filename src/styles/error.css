@@ -1,0 +1,18 @@
+#error {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 0px;
+  left: 50%;
+  background-color: #fa4646d8;
+  color: white;
+  border-radius: 5%;
+  transform: translate(-50%, -50%);
+  margin-top: 10px;
+  /*visibility: hidden;*/
+  transition: height 200ms ease-in-out;
+  font-family: "Courier New", Courier, monospace;
+  font-size: small;
+}

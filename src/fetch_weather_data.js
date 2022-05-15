@@ -1,10 +1,7 @@
 import { generateAPIKey } from "./api_key";
 const key = generateAPIKey();
 
-async function fetchCurrentWeatherData(
-  location,
-  units = "metric"
-) {
+async function fetchCurrentWeatherData(location, units = "metric") {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${units}&appid=${key}`;
   try {
     const response = await fetch(url, { mode: "cors" });
@@ -16,14 +13,11 @@ async function fetchCurrentWeatherData(
       throw new Error(`Invalid query - ${response.message}`);
     }
   } catch (error) {
-    return error;
+    throw error;
   }
 }
 
-async function fetchForecastWeatherData(
-  location,
-  units = "metric"
-) {
+async function fetchForecastWeatherData(location, units = "metric") {
   let url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${units}&appid=${key}`;
   try {
     const response = await fetch(url, { mode: "cors" });
@@ -35,7 +29,7 @@ async function fetchForecastWeatherData(
       throw new Error(`Invalid query - ${response.message}`);
     }
   } catch (error) {
-    return error;
+    throw error;
   }
 }
 

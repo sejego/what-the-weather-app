@@ -11,7 +11,7 @@ const searchBtn = document.getElementById("search-btn");
 search.addEventListener("input", function (event) {
   if (search.validity.valueMissing) {
     displayError(ErrorCodes.LocationSearchEmpty);
-    setTimeout(hideError, 2500);
+    setTimeout(hideError, 1700);
   }
 });
 function removeSearchText() {
@@ -23,18 +23,23 @@ searchBtn.addEventListener("click", () => {
   removeSearchText();
 });
 
-async function updateWeather(location = 'Tallinn') {
+async function updateWeather(location = "Tallinn") {
   Promise.all([
     fetchCurrentWeatherData(location),
-    fetchForecastWeatherData(location),
+    fetchForecastWeatherData(location)
   ])
-    .then((weatherData) => {
-      parseDataIntoDOM(weatherData);
-    })
+    .then(
+      function(weatherData){
+        parseDataIntoDOM(weatherData);
+      },
+      function(err){
+        throw err;
+      }
+    )
     .catch((err) => {
       console.log(err);
       displayError(ErrorCodes.LocationNotFound);
-      setTimeout(hideError, 2500);
+      setTimeout(hideError, 1700);
     });
 }
 updateWeather();

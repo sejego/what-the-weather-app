@@ -10,11 +10,13 @@ const mainIcon = document.getElementsByClassName("icon")[0];
 const infoMain = document.getElementsByClassName("column");
 
 function parseDataIntoDOM(data) {
+  console.log("SOBAKA");
   updateMain(data[0]);
   updateForecast(data[1]);
 }
 
 function updateMain(data) {
+  console.log("BOOGALOO");
   location.textContent = data["name"];
   infoMain[0].children[1].textContent = `${data["weather"][0]["description"]}`;
   infoMain[1].textContent = `Pressure: ${data["main"]["pressure"]}`;
@@ -42,6 +44,5 @@ function updateForecast(data) {
     ); // incremebt by 1 becuse 0 is the main temperature
   }
 }
-
 
 export { parseDataIntoDOM };

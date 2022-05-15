@@ -13,10 +13,10 @@ import iconSquallAndTornado from "./icons/squall-tornado.svg";
 import iconThunderstorm from "./icons/thunderstorm.svg";
 
 const weatherObject = {
-  ash: {
+  Ash: {
     icon: iconAsh,
   },
-  clear: {
+  Clear: {
     day: {
       icon: iconClearDay,
     },
@@ -24,43 +24,43 @@ const weatherObject = {
       icon: iconClearNight,
     },
   },
-  clouds: {
+  Clouds: {
     icon: iconClouds,
   },
-  drizzle: {
+  Drizzle: {
     icon: iconDrizzle,
   },
-  dust: {
+  Dust: {
     icon: iconDustAndSand,
   },
-  sand: {
+  Sand: {
     icon: iconDustAndSand,
   },
-  haze: {
+  Haze: {
     icon: iconHazeAndFog,
   },
-  fog: {
+  Fog: {
     icon: iconHazeAndFog,
   },
-  mist: {
+  Mist: {
     icon: iconMist,
   },
-  rain: {
+  Rain: {
     icon: iconRain,
   },
-  smoke: {
+  Smoke: {
     icon: iconSmoke,
   },
-  snow: {
+  Snow: {
     icon: iconSnow,
   },
-  squall: {
+  Squall: {
     icon: iconSquallAndTornado,
   },
-  tornado: {
+  Tornado: {
     icon: iconSquallAndTornado,
   },
-  thunderstorm: {
+  Thunderstorm: {
     icon: iconThunderstorm,
   },
 };

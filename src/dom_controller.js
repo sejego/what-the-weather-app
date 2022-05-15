@@ -12,15 +12,14 @@ function parseDataIntoDOM(data) {
 }
 
 function updateMainBox(data){
-  let condition = data['weather'][0]['description'];
   location.textContent = data['name'];
-  infoMain[0].textContent = `Sky: ${condition}`;
+  infoMain[0].textContent = `Currently: ${data['weather'][0]['description']}`;
   infoMain[1].textContent = `Pressure: ${data['main']['pressure']}`;
   infoMain[2].textContent = `Humidity: ${data['main']['humidity']}%`;
   infoMain[3].textContent = `Wind: ${data['wind']['speed']}`;
   let temp = Math.round(data['main']['temp']);
   tempMain.textContent = `${temp}°C`;
-  mainIcon.children[0].src = generateWeatherIcon(condition);
+  mainIcon.children[0].src = generateWeatherIcon(data['weather'][0]['main']);
 }
 
 /*

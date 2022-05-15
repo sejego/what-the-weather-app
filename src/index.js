@@ -1,4 +1,7 @@
-import { fetchCurrentWeatherData } from "./fetch_weather_data";
+import {
+  fetchCurrentWeatherData,
+  fetchForecastWeatherData,
+} from "./fetch_weather_data";
 import { parseDataIntoDOM } from "./dom_controller";
 import { displayError, hideError, ErrorCodes } from "./errors";
 
@@ -12,16 +15,26 @@ search.addEventListener("input", function (event) {
   }
 });
 
-searchBtn.addEventListener("click", updateWeather, false);
+searchBtn.addEventListener("click", () => {
+  updateWeather();
+  removeSearchText();
+});
 
 async function updateWeather() {
-  // top level await doesn't seem to work...
-  await fetchCurrentWeatherData(search.value)
-    .then((data) => {
-      parseDataIntoDOM(data);
+  Promise.all([
+    fetchCurrentWeatherData(search.value),
+    fetchForecastWeatherData(search.value),
+  ])
+    .then((weatherData) => {
+      parseDataIntoDOM(weatherData);
     })
     .catch((err) => {
+      console.log(err);
       displayError(ErrorCodes.LocationNotFound);
       setTimeout(hideError, 2500);
     });
+}
+
+function removeSearchText() {
+  search.value = "";
 }

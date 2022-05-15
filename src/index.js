@@ -14,16 +14,19 @@ search.addEventListener("input", function (event) {
     setTimeout(hideError, 2500);
   }
 });
+function removeSearchText() {
+  search.value = "";
+}
 
 searchBtn.addEventListener("click", () => {
-  updateWeather();
+  updateWeather(search.value);
   removeSearchText();
 });
 
-async function updateWeather() {
+async function updateWeather(location = 'Tallinn') {
   Promise.all([
-    fetchCurrentWeatherData(search.value),
-    fetchForecastWeatherData(search.value),
+    fetchCurrentWeatherData(location),
+    fetchForecastWeatherData(location),
   ])
     .then((weatherData) => {
       parseDataIntoDOM(weatherData);
@@ -34,7 +37,4 @@ async function updateWeather() {
       setTimeout(hideError, 2500);
     });
 }
-
-function removeSearchText() {
-  search.value = "";
-}
+updateWeather();

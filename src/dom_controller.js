@@ -16,7 +16,7 @@ function parseDataIntoDOM(data) {
 
 function updateMain(data) {
   location.textContent = data["name"];
-  infoMain[0].textContent = `Currently: ${data["weather"][0]["description"]}`;
+  infoMain[0].children[1].textContent = `${data["weather"][0]["description"]}`;
   infoMain[1].textContent = `Pressure: ${data["main"]["pressure"]}`;
   infoMain[2].textContent = `Humidity: ${data["main"]["humidity"]}%`;
   infoMain[3].textContent = `Wind: ${data["wind"]["speed"]}`;
@@ -42,5 +42,6 @@ function updateForecast(data) {
     ); // incremebt by 1 becuse 0 is the main temperature
   }
 }
+
 
 export { parseDataIntoDOM };

@@ -137,18 +137,37 @@ input[type="search"] {
     display: none;
   }
   #cnt-1 {
-    height: 7%;
+    height: 5%;
   }
   #cnt-2 {
-    height: 45%;
+    height: 18%;
   }
   #cnt-3 {
-    height: 20%;
+    height: 10%;
   }
   :root {
     --card-width: 85%;
   }
   .info-small {
     font-size: 20px;
+  }
+}
+@media (max-height: 615px) {
+  /* #location {
+    font-size: 20px;
+  }
+  #temperature{
+    font-size: 30px;
+  }*/
+  #cnt-1 {
+    height: 40px;
+  }
+  #cnt-2 {
+    height: 240px;
+  }
+}
+@media (max-height: 420px) {
+  #cnt-3 {
+    height: 105.25px;
   }
 }

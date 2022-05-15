@@ -2,7 +2,7 @@ import { generateAPIKey } from "./api_key";
 const key = generateAPIKey();
 
 async function fetchCurrentWeatherData(
-  location = "Los Angeles",
+  location,
   units = "metric"
 ) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${units}&appid=${key}`;
@@ -21,7 +21,7 @@ async function fetchCurrentWeatherData(
 }
 
 async function fetchForecastWeatherData(
-  location = "Los Angeles",
+  location,
   units = "metric"
 ) {
   let url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${units}&appid=${key}`;

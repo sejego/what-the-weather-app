@@ -1,5 +1,5 @@
 import { generateWeatherIcon } from "./weather_icons";
-import { tsToWeekday } from "./weekdays";
+import { tsToWeekday, getMaximumDayTemp } from "./utils";
 
 const tempSmall = document.getElementsByClassName("info-small");
 const tempMain = document.getElementById("temperature");
@@ -29,28 +29,29 @@ function updateForecast(data) {
   let date = new Date();
   // 4 days only
   for (let i = 0; i < 4; i++) {
-    // Increment by 1 because we start with the next day. Decrement one because 0 is counted.
-    let idx = (i + 1) * 10 - 1;
-    let dayData = data["list"][idx];
+    let dayStartIdx = i*8;
+    let dayData = data["list"].slice(dayStartIdx, dayStartIdx + 8);
+    console.log(dayData);
     updateForecastSingle(dayData, i);
   }
 }
 
 function updateForecastSingle(data, cardIdx) {
-  let temp = Math.round(data["main"]["temp"]);
+  let temp = Math.round(getMaximumDayTemp(data));
+  //let temp = Math.round(data["main"]["temp"]);
   tempSmall[cardIdx].textContent = `${temp}°C`;
   /* Get weekdays from timestamp. Timestamp must be multiplied by 1000
        because UNIX time in JavaScript is in ms. */
   weekdays[cardIdx].children[0].textContent = tsToWeekday(
-    data["dt"] * 1000,
+    data[0]["dt"] * 1000,
     "long"
   );
   weekdays[cardIdx].children[1].textContent = tsToWeekday(
-    data["dt"] * 1000,
+    data[0]["dt"] * 1000,
     "short"
   );
   smallIcons[cardIdx + 1].children[0].src = generateWeatherIcon(
-    data["weather"][0]["main"]
+    data[0]["weather"][0]["main"]
   ); // incremebt by 1 becuse 0 is the main temperature
 }
 

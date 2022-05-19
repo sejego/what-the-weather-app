@@ -1,3 +1,6 @@
+// TODO: Add Fahrenheit - Celsius toggle
+// TODO: Add weather animations / images
+
 import {
   fetchCurrentWeatherData,
   fetchForecastWeatherData,

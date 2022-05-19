@@ -42,4 +42,3 @@ async function updateWeather(location = "Tallinn") {
       setTimeout(hideError, 1700);
     });
 }
-updateWeather();

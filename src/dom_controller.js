@@ -1,5 +1,5 @@
 import { generateWeatherIcon } from "./weather_icons";
-import { getWeekDay } from "./weekdays";
+import { tsToWeekday } from "./weekdays";
 
 const tempSmall = document.getElementsByClassName("info-small");
 const tempMain = document.getElementById("temperature");
@@ -10,13 +10,11 @@ const mainIcon = document.getElementsByClassName("icon")[0];
 const infoMain = document.getElementsByClassName("column");
 
 function parseDataIntoDOM(data) {
-  console.log("SOBAKA");
   updateMain(data[0]);
   updateForecast(data[1]);
 }
 
 function updateMain(data) {
-  console.log("BOOGALOO");
   location.textContent = data["name"];
   infoMain[0].children[1].textContent = `${data["weather"][0]["description"]}`;
   infoMain[1].textContent = `Pressure: ${data["main"]["pressure"]}`;
@@ -34,15 +32,26 @@ function updateForecast(data) {
     // Increment by 1 because we start with the next day. Decrement one because 0 is counted.
     let idx = (i + 1) * 10 - 1;
     let dayData = data["list"][idx];
-    let temp = Math.round(dayData["main"]["temp"]);
-    tempSmall[i].textContent = `${temp}°C`;
-    let day = getWeekDay(date.getDay() + i);
-    weekdays[i].children[0].textContent = day["fullDay"];
-    weekdays[i].children[1].textContent = day["shortDay"];
-    smallIcons[i + 1].children[0].src = generateWeatherIcon(
-      dayData["weather"][0]["main"]
-    ); // incremebt by 1 becuse 0 is the main temperature
+    updateForecastSingle(dayData, i);
   }
+}
+
+function updateForecastSingle(data, cardIdx) {
+  let temp = Math.round(data["main"]["temp"]);
+  tempSmall[cardIdx].textContent = `${temp}°C`;
+  /* Get weekdays from timestamp. Timestamp must be multiplied by 1000
+       because UNIX time in JavaScript is in ms. */
+  weekdays[cardIdx].children[0].textContent = tsToWeekday(
+    data["dt"] * 1000,
+    "long"
+  );
+  weekdays[cardIdx].children[1].textContent = tsToWeekday(
+    data["dt"] * 1000,
+    "short"
+  );
+  smallIcons[cardIdx + 1].children[0].src = generateWeatherIcon(
+    data["weather"][0]["main"]
+  ); // incremebt by 1 becuse 0 is the main temperature
 }
 
 export { parseDataIntoDOM };

@@ -1,17 +1,6 @@
-const weekdays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-function getWeekDay(day) {
-  let fullDay = weekdays[day];
-  let shortDay = fullDay.substring(0, 3);
-  return { fullDay: fullDay, shortDay: shortDay };
+function tsToWeekday(timestamp, length) {
+  let weekday = new Date(timestamp).toLocaleDateString('en-US', { weekday: length });
+  return weekday;
 }
 
-export { getWeekDay };
+export { tsToWeekday };

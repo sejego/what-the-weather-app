@@ -5,8 +5,9 @@ import {
   fetchCurrentWeatherData,
   fetchForecastWeatherData,
 } from "./fetch_weather_data";
-import { parseDataIntoDOM } from "./dom_controller";
+import { updateDOM } from "./dom_controller";
 import { displayError, hideError, ErrorCodes } from "./errors";
+import { parseData } from "./weather_data_parser";
 
 const search = document.getElementsByName("Location")[0];
 const searchBtn = document.getElementById("search-btn");
@@ -29,13 +30,14 @@ searchBtn.addEventListener("click", () => {
 async function updateWeather(location = "Tallinn") {
   Promise.all([
     fetchCurrentWeatherData(location),
-    fetchForecastWeatherData(location)
+    fetchForecastWeatherData(location),
   ])
     .then(
-      function(weatherData){
-        parseDataIntoDOM(weatherData);
+      function (weatherData) {
+        let parsedData = parseData(weatherData);
+        updateDOM(parsedData);
       },
-      function(err){
+      function (err) {
         throw err;
       }
     )

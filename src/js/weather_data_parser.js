@@ -24,6 +24,12 @@ class ForecastWeather {
   }
 }
 
+/**
+ * Parse response from OpenWeather API and set it into objects containing
+ * information about today's and upcoming days' weather
+ * @param {json} data - JSON of the request from OpenWeather API
+ * @returns {array} returns an array of two objects: CurrentWeather and ForecastWeather
+ */
 function parseData(data) {
   let currentDay = new CurrentWeather();
   let forecastDays = [];

@@ -33,12 +33,14 @@ class ForecastWeather {
 function parseData(data) {
   let currentDay = new CurrentWeather();
   let forecastDays = [];
-  /* Parse current day weather */
   currentDay.location = data[0]["name"];
-  currentDay.description = data[0]["weather"][0]["description"];
-  currentDay.pressure = data[0]["main"]["pressure"];
+  /* make description start with capital letter */
+  const description = data[0]["weather"][0]["description"];
+  currentDay.description =
+    description.charAt(0).toUpperCase() + description.slice(1);
+  currentDay.pressure = data[0]["main"]["pressure"] + " bar";
   currentDay.humidity = data[0]["main"]["humidity"];
-  currentDay.windSpeed = data[0]["wind"]["speed"];
+  currentDay.windSpeed = data[0]["wind"]["speed"] + " m/s";
   currentDay.temperature = Math.round(data[0]["main"]["temp"]);
   currentDay.weatherIcon = generateWeatherIcon(data[0]["weather"][0]["main"]);
 

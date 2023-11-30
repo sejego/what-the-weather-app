@@ -1,3 +1,6 @@
+import "../styles/style.css"
+import "../styles/error.css"
+
 import { updateWeather } from "./fetch_weather_data";
 import { isSearchFieldEmpty} from "./utils";
 

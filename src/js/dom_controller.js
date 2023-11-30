@@ -32,7 +32,8 @@ function updateForecastSingle(data, cardIdx) {
   tempSmall[cardIdx].textContent = `${data.temperature}°C`;
   weekdays[cardIdx].children[0].textContent = data.fullDayName;
   weekdays[cardIdx].children[1].textContent = data.ShortDayName;
-  smallIcons[cardIdx + 1].children[0].src = data.weatherIcon; // incremebt by 1 becuse 0 is the main temperature
+  /* increment by 1 becuse smallIcon[0] is the today's weather icon */
+  smallIcons[cardIdx + 1].children[0].src = data.weatherIcon;
 }
 
 export { updateWeatherComponents };

@@ -7,7 +7,7 @@ const searchBtn = document.getElementById("search-btn");
 searchBtn.addEventListener("click", (event) => processWeatherRequest(event));
 
 async function processWeatherRequest(event) {
-  // prevent double click event from happening
+  /* prevent double click event from happening */
   event.stopPropagation();
   event.preventDefault();
   if (!isSearchFieldEmpty(search)) {
@@ -16,5 +16,5 @@ async function processWeatherRequest(event) {
   search.value = "";
 }
 
-// Initial update with default location
+/* Initial update with default location */
 updateWeather();

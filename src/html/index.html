@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/style.css" />
+    <link rel="stylesheet" href="/src/styles/error.css" />
+    <title>What the Weather?</title>
+  </head>
+  <body>
+    <div id="error"></div>
+    <div class="container" id="cnt-1">
+      <div class="container-inner single-container">
+        <input
+          name="Location"
+          required
+          type="search"
+          placeholder="e.g. Tallinn"
+        />
+        <button id="search-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="container" id="cnt-2">
+      <div id="main" class="container-inner single-container">
+        <div id="location">
+          <span></span>
+        </div>
+        <div class="icon">
+          <img src="/src/icons/clear-day.svg" />
+        </div>
+        <div id="temperature"></div>
+        <div id="info">
+          <div class="column">
+            <span class="full-text">Current:</span><span></span>
+          </div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="cnt-3">
+      <div class="container-inner container-multi">
+        <div class="container-small">
+          <div class="week-day">
+            <span class="full-text"></span>
+            <span class="short-text"></span>
+          </div>
+          <div class="icon">
+            <img />
+          </div>
+          <div class="info-small"></div>
+        </div>
+        <div class="container-small">
+          <div class="week-day">
+            <span class="full-text"></span>
+            <span class="short-text"></span>
+          </div>
+          <div class="icon">
+            <img />
+          </div>
+          <div class="info-small"></div>
+        </div>
+        <div class="container-small">
+          <div class="week-day">
+            <span class="full-text"></span>
+            <span class="short-text"></span>
+          </div>
+          <div class="icon">
+            <img />
+          </div>
+          <div class="info-small"></div>
+        </div>
+        <div class="container-small">
+          <div class="week-day">
+            <span class="full-text"></span>
+            <span class="short-text"></span>
+          </div>
+          <div class="icon">
+            <img />
+          </div>
+          <div class="info-small"></div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

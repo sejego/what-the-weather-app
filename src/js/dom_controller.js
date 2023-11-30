@@ -1,12 +1,12 @@
-const tempSmall = document.getElementsByClassName("info-small");
-const tempMain = document.getElementById("temperature");
-const weekdays = document.getElementsByClassName("week-day");
+const tempSmall  = document.getElementsByClassName("info-small");
+const tempMain   = document.getElementById("temperature");
+const weekdays   = document.getElementsByClassName("week-day");
 const smallIcons = document.getElementsByClassName("icon");
-const location = document.getElementById("location");
-const mainIcon = document.getElementsByClassName("icon")[0];
-const infoMain = document.getElementsByClassName("column");
+const location   = document.getElementById("location");
+const mainIcon   = document.getElementsByClassName("icon")[0];
+const infoMain   = document.getElementsByClassName("column");
 
-function updateDOM(data) {
+function updateWeatherComponents(data) {
   updateCurrentWeather(data["currentDay"]);
   updateForecast(data["forecastDays"]);
 }
@@ -35,4 +35,4 @@ function updateForecastSingle(data, cardIdx) {
   smallIcons[cardIdx + 1].children[0].src = data.weatherIcon; // incremebt by 1 becuse 0 is the main temperature
 }
 
-export { updateDOM };
+export { updateWeatherComponents };

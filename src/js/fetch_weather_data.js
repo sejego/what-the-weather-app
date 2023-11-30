@@ -1,4 +1,8 @@
+import { parseData } from "./weather_data_parser";
 import { generateAPIKey } from "./api_key";
+import { updateWeatherComponents } from "./dom_controller";
+import { processError } from "./utils";
+
 const key = generateAPIKey();
 
 async function fetchCurrentWeatherData(location, units = "metric") {
@@ -33,4 +37,18 @@ async function fetchForecastWeatherData(location, units = "metric") {
   }
 }
 
-export { fetchCurrentWeatherData, fetchForecastWeatherData };
+async function updateWeather(location = "Tallinn") {
+  try {
+    const [currentWeatherData, forecastWeatherData] = await Promise.all([
+      fetchCurrentWeatherData(location),
+      fetchForecastWeatherData(location),
+    ]);
+
+    const parsedData = parseData([currentWeatherData, forecastWeatherData]);
+    updateWeatherComponents(parsedData);
+  } catch (error) {
+    processError(error);
+  }
+}
+
+export { updateWeather };

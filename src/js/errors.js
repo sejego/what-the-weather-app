@@ -9,12 +9,10 @@ function displayError(code) {
   switch (code) {
     case ErrorCodes.LocationNotFound:
       error.style.height = "40px";
-      //error.style.visibility = "visible";
       error.textContent = "Location not found";
       break;
     case ErrorCodes.LocationSearchEmpty:
       error.style.height = "40px";
-      //error.style.visibility = "visible";
       error.textContent = "Cannot be empty!";
       break;
   }

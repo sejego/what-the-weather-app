@@ -178,6 +178,21 @@ input[type="search"] {
   }
 }
 
+@media (max-width: 390px) {
+  #cnt-1 {
+    width: 350px;
+  }
+  #cnt-2 {
+    width: 350px;
+  }
+  #cnt-3 {
+    width: 350px;
+  }
+  .container-inner{
+    width: 330px;
+  }
+}
+
 @media (max-height: 615px) {
 
   #cnt-1 {

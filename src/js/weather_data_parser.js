@@ -19,7 +19,7 @@ class ForecastWeather {
   constructor() {
     this.temperature = 0;
     this.fullDayName = "";
-    this.shortDayNam = "";
+    this.shortDayName = "";
     this.weatherIcon = "";
   }
 }

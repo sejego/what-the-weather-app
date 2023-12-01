@@ -49,7 +49,7 @@ function updateForecast(data) {
 function updateForecastSingle(data, cardIdx) {
   tempSmall[cardIdx].textContent = `${data.temperature}°C`;
   weekdays[cardIdx].children[0].textContent = data.fullDayName;
-  weekdays[cardIdx].children[1].textContent = data.ShortDayName;
+  weekdays[cardIdx].children[1].textContent = data.shortDayName;
   /* increment by 1 becuse smallIcon[0] is the today's weather icon */
   smallIcons[cardIdx + 1].children[0].src = data.weatherIcon;
 }

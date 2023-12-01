@@ -1,7 +1,7 @@
 import { displayError, hideError, ErrorCodes } from "./errors";
 
 function tsToWeekday(timestamp, length) {
-  let weekday = new Date(timestamp).toLocaleDateString('en-US', { weekday: length });
+  const weekday = new Date(timestamp).toLocaleDateString('en-US', { weekday: length });
   return weekday;
 }
 function getMaximumDayTemp(weatherList){
